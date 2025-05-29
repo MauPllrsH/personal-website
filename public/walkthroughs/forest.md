@@ -10,7 +10,7 @@ machine_rank: "#212"
 htb_completion_image: "forest.webp"
 ---
 
-![HTB Forest Completion](/static/imgs/walkthroughs/forest.webp)
+![HTB Forest Completion](/imgs/walkthroughs/forest.webp)
 
 This write-up details my journey through the Forest HTB box, following Ippsec's methodology from his video walkthrough. While following his approach, I encountered several differences due to tool updates and version changes that required some troubleshooting. I think documenting these differences might help others who are also learning Active Directory exploitation.
 

@@ -10,7 +10,7 @@ machine_rank: "#9183"
 htb_completion_image: "resolute.webp"
 ---
 
-![HTB Resolute Completion](/static/imgs/walkthroughs/resolute.webp)
+![HTB Resolute Completion](/imgs/walkthroughs/resolute.webp)
 
 In this walkthrough, I'll guide you through my exploitation of the "Resolute" box from HackTheBox. It begins with simple anonymous bindings and culminates in a system-level compromise. The attack chain starts with RPC anonymous binding to gather user accounts, discovering credentials through LDAP anonymous binding, and confirming access via password spraying to gain initial access as user 'melanie'. From there, the path leads to uncovering a hidden PowerShell transcript directory containing the credentials for a higher-privileged user 'ryan', who belongs to the powerful DnsAdmins group. This group membership becomes our ticket to privilege escalation by allowing us to inject a malicious DLL through the DNS service, ultimately yielding SYSTEM-level access and complete domain compromise.
 

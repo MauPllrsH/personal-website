@@ -1,38 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  useEffect(() => {
-    // Matrix transition effect logic can be added here
-    const htbLink = document.getElementById('htb-link');
-    const overlay = document.getElementById('matrix-overlay');
-    
-    if (htbLink && overlay) {
-      const handleClick = (event) => {
-        event.preventDefault();
-        overlay.style.display = 'flex';
-        setTimeout(() => {
-          overlay.classList.add('show');
-        }, 10);
-        
-        setTimeout(() => {
-          window.location.href = '/htb';
-        }, 3100);
-      };
-      
-      htbLink.addEventListener('click', handleClick);
-      
-      return () => {
-        htbLink.removeEventListener('click', handleClick);
-      };
-    }
-  }, []);
+  // REMOVED the useEffect that was preventing navigation
+  // We can add the matrix transition back later in a different way
 
   return (
     <div className="container">
       <header className="header">
         <h1>Mauricio Pallares Hernández</h1>
-        <img src="public/imgs/kidgoku.jpg" alt="Kid Goku" className="profile-pic" />
+        {/* Fixed image path - should be in public/imgs/ */}
+        <img src="/imgs/kidgoku.jpg" alt="Kid Goku" className="profile-pic" />
         <h2 style={{ textAlign: 'center' }}>Welcome to my personal website!</h2>
         <p style={{ textAlign: 'center' }}>
           <a href="https://github.com/MauPllrsH">GitHub</a> |{' '}
@@ -46,7 +24,8 @@ const Home = () => {
           <li><a href="#current-plans">Current Plans</a></li>
           <li><a href="#esports">Esports</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><Link to="/htb" id="htb-link">HTB Walkthroughs</Link></li>
+          {/* Fixed HTB link - removed the id and click handler that was causing issues */}
+          <li><Link to="/htb">HTB Walkthroughs</Link></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -135,7 +114,7 @@ const Home = () => {
         <p>If you would like to get in touch, feel free to reach out via email at <a href="mailto:maupllrshjbs@gmail.com">Mail</a></p>
       </section>
 
-      <div id="matrix-overlay" className="transition-overlay matrix-bg"></div>
+      {/* Removed the matrix overlay for now - we can add it back later without breaking navigation */}
     </div>
   );
 };
