@@ -2,31 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  // REMOVED the useEffect that was preventing navigation
-  // We can add the matrix transition back later in a different way
 
   return (
     <div className="container">
       <header className="header">
         <h1>Mauricio Pallares Hernández</h1>
-        {/* Fixed image path - should be in public/imgs/ */}
         <img src="/imgs/kidgoku.jpg" alt="Kid Goku" className="profile-pic" />
         <h2 style={{ textAlign: 'center' }}>Welcome to my personal website!</h2>
         <p style={{ textAlign: 'center' }}>
           <a href="https://github.com/MauPllrsH">GitHub</a> |{' '}
-          <a href="https://www.linkedin.com/in/mauricio-pallares-54aa862b7/">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/mauricio-pallares-54aa862b7/">LinkedIn</a> |{' '}
+          <a href="mailto:maupllrshjbs@gmail.com">Mail</a>
         </p>
       </header>
 
       <nav className="nav">
         <ul>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#current-plans">Current Plans</a></li>
-          <li><a href="#esports">Esports</a></li>
-          <li><a href="#projects">Projects</a></li>
-          {/* Fixed HTB link - removed the id and click handler that was causing issues */}
+          <li><Link to="/projects">Projects</Link></li>
           <li><Link to="/htb">HTB Walkthroughs</Link></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -36,14 +29,47 @@ const Home = () => {
           I'm a recent graduate of St. Edward's University in Computer Science. I'm really passionate about learning and at the time of this writing, Ethical Hacking.
           I'm currently pursuing a career as a Penetration Tester, but I'm also interested in Software Development.
           I was almost a professional soccer player, and then almost a professional Esports player, but I decided to pursue a career in technology instead.
+          Currently I'm pursuing the HackTheBox CPTS certification, once I have that, I will be pursuing the OSCP certification.
+          On top of that, I'm also learning how to code in C++, and trying to climb the ranks of both HackTheBox and LeetCode.
         </p>
       </section>
 
-      <section id="current-plans">
-        <h2>Current Plans</h2>
+      <section id="education">
+        <h2>Education</h2>
         <p>
-          Currently I'm pursuing the HackTheBox CPTS certification, once I have that, I will be pursuing the OSCP certification.
-          On top of that, I'm also learning how to code in C++, and trying to climb the ranks of both HackTheBox and LeetCode.
+          Saint Edward's University, Austin, TX <br />
+          Bachelor of Science in Computer Science, 3.58GPA, May 2025 <br />
+          Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Web Development, Software Engineering <br />
+          Cum Laude Honors, 6x Dean's List <br />
+        </p>
+        {/* LOGO OF STEDS / GRAD PHOTO?*/}
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <p>
+          For Software Engineering, I particularly enjoy working with Python in the backend and doing server work in the terminal. I do have experience with web development using React, Flask and Django.
+            I'm currently learning C++, and I have experience with SQL databases like MySQL, sqlite and Maria.
+          <br />
+            For Cybersecurity, I have experience with penetration testing primarily using Kali Linux, and I have experience with a large set of tools. I primarily focus on Web Application, Linux, Windows and Active Directory hacking.
+          <br />
+          I have experience with HackTheBox, PortSwigger, TryHackMe, PicoCTF, and other CTFs. I also have experience with Python and Bash scripting for automation and tool development.
+        </p>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <p>
+            I currently hold the following certifications:
+          <ul>
+            <li>CompTIA Security+ (SY0-601)</li>
+            <li>Google Cybersecurity</li>
+          </ul>
+            I am currently pursuing the following certifications:
+            <ul>
+                <li>HackTheBox Certified Penetration Tester (CPTS)</li>
+                <li>Offensive Security Certified Professional (OSCP)</li>
+            </ul>
         </p>
       </section>
 
@@ -67,54 +93,6 @@ const Home = () => {
         </p>
       </section>
 
-      <section id="projects">
-        <h2>Projects</h2>
-        
-        <div className="project">
-          <h3>Machine Learning Powered Web Application Firewall</h3>
-          <p className="project-date">Sep 2024 – Apr 2025</p>
-          <ul>
-            <li>Designed and deployed a multi-cloud solution using a Public Key Infrastructure</li>
-            <li>Implemented real-time ML anomaly detection with a detection rate of 88% for true positives</li>
-            <li>Built responsive React dashboard with performance metrics visualization</li>
-            <li>Utilized microservices architecture with gRPC for inter-service communication</li>
-          </ul>
-          <p><strong>Tech Stack:</strong> Flask, Docker, React, JavaScript, Tailwind CSS, SQL, MongoDB, gRPC, Ubuntu</p>
-        </div>
-
-        <div className="project">
-          <h3>Data Science Application with LLMs</h3>
-          <p className="project-date">Apr 2025</p>
-          <ul>
-            <li>Built Streamlit application integrating OpenAI API to assist with data science workflows</li>
-            <li>Implemented three-module pipeline: data cleaning, analysis, and modeling - each triggered by user</li>
-            <li>Features include: custom instruction input, AI-generated suggestions, regeneration options, and PDF export</li>
-            <li>Processes datasets up to 200MB with AI-generated visualizations and model metrics on demand</li>
-            <li>Reduces data preparation time from hours to minutes through AI-assisted code generation</li>
-          </ul>
-          <p><strong>Tech Stack:</strong> Python, Streamlit, OpenAI API, Pandas, NumPy, Matplotlib</p>
-          <p><a href="https://csv-openai-analyst.streamlit.app/">Link to App</a></p>
-        </div>
-
-        <div className="project">
-          <h3>Transportation as a Service Platform</h3>
-          <p className="project-date">Jan 2024 – May 2024</p>
-          <ul>
-            <li>Led DevOps for multi-cloud deployment</li>
-            <li>Developed REST APIs handling multiple concurrent connections</li>
-            <li>Built CI/CD pipeline eliminating manual deployment approvals, enabling team members to deploy tested changes autonomously</li>
-            <li>Collaborated using Agile methodology with 2-week sprints</li>
-          </ul>
-          <p><strong>Tech Stack:</strong> Flask, Docker, Digital Ocean, Ubuntu, Bash, Bitbucket</p>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>If you would like to get in touch, feel free to reach out via email at <a href="mailto:maupllrshjbs@gmail.com">Mail</a></p>
-      </section>
-
-      {/* Removed the matrix overlay for now - we can add it back later without breaking navigation */}
     </div>
   );
 };

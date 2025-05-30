@@ -59,7 +59,7 @@ const HTBList = () => {
         <header className="header">
           <h1>HackTheBox Walkthroughs</h1>
           <p style={{ textAlign: 'center' }}>
-            <Link to="/">← Back to Home</Link>
+            <Link to="/">← Back to Home </Link>
           </p>
         </header>
         <p>Loading walkthroughs...</p>
@@ -69,11 +69,13 @@ const HTBList = () => {
 
   return (
     <div className="container">
-      {/* Rest of your HTBList component stays the same */}
+      {/* Rest of HTBList component stays the same */}
       <header className="header">
         <h1>HackTheBox Walkthroughs</h1>
         <p style={{ textAlign: 'center' }}>
-          <Link to="/">← Back to Home</Link>
+          <Link to="/">Home</Link>
+            {' | '}
+          <Link to="/projects">Software Engineering Projects</Link>
         </p>
       </header>
 

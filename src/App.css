@@ -454,13 +454,6 @@ img {
   transition: opacity 0.8s ease-in-out;
 }
 
-.matrix-bg {
-  background-image: url('/public/imgs/esports.gif');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .transition-overlay.show {
   opacity: 1;
 }
