@@ -9,7 +9,6 @@ const Projects = () => {
             <h1>Software Engineering Projects</h1>
             <p style={{ textAlign: 'center' }}>
               <Link to="/">← Back to Home </Link>
-              {' | '}
               <Link to="/htb">HTB Walkthroughs</Link>
             </p>
           </header>

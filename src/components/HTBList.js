@@ -74,7 +74,6 @@ const HTBList = () => {
         <h1>HackTheBox Walkthroughs</h1>
         <p style={{ textAlign: 'center' }}>
           <Link to="/">Home</Link>
-            {' | '}
           <Link to="/projects">Software Engineering Projects</Link>
         </p>
       </header>

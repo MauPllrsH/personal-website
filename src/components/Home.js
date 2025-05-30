@@ -1,98 +1,259 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
-
   return (
-    <div className="container">
-      <header className="header">
-        <h1>Mauricio Pallares Hernández</h1>
-        <img src="/imgs/kidgoku.jpg" alt="Kid Goku" className="profile-pic" />
-        <h2 style={{ textAlign: 'center' }}>Welcome to my personal website!</h2>
-        <p style={{ textAlign: 'center' }}>
-          <a href="https://github.com/MauPllrsH">GitHub</a> |{' '}
-          <a href="https://www.linkedin.com/in/mauricio-pallares-54aa862b7/">LinkedIn</a> |{' '}
-          <a href="mailto:maupllrshjbs@gmail.com">Mail</a>
-        </p>
-      </header>
-
-      <nav className="nav">
-        <ul>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/htb">HTB Walkthroughs</Link></li>
-        </ul>
-      </nav>
-
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I'm a recent graduate of St. Edward's University in Computer Science. I'm really passionate about learning and at the time of this writing, Ethical Hacking.
-          I'm currently pursuing a career as a Penetration Tester, but I'm also interested in Software Development.
-          I was almost a professional soccer player, and then almost a professional Esports player, but I decided to pursue a career in technology instead.
-          Currently I'm pursuing the HackTheBox CPTS certification, once I have that, I will be pursuing the OSCP certification.
-          On top of that, I'm also learning how to code in C++, and trying to climb the ranks of both HackTheBox and LeetCode.
-        </p>
+    <div className="modern-layout">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="section-content">
+          <div className="content-left">
+            <h1 className="hero-title">Mauricio Pallares Hernández</h1>
+            <h2 className="hero-subtitle">Cybersecurity Enthusiast & Software Developer</h2>
+            <p className="hero-description">
+              Recent Computer Science graduate passionate about ethical hacking, penetration testing, 
+              and building secure software solutions. Currently pursuing CPTS and OSCP certifications 
+              while climbing the ranks on HackTheBox.
+            </p>
+            <div className="hero-links">
+              <a href="https://github.com/MauPllrsH" className="social-link">GitHub</a>
+              <a href="https://www.linkedin.com/in/mauricio-pallares-54aa862b7/" className="social-link">LinkedIn</a>
+              <a href="/htb" className="cta-button">View HTB Walkthroughs</a>
+              <a href="/projects" className="cta-button">View Projects</a>
+            </div>
+          </div>
+          <div className="content-right">
+            <div className="hero-image-container">
+              <img src="/imgs/mau.JPG" alt="Mauricio Pallares" className="hero-image" />
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="education">
-        <h2>Education</h2>
-        <p>
-          Saint Edward's University, Austin, TX <br />
-          Bachelor of Science in Computer Science, 3.58GPA, May 2025 <br />
-          Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Web Development, Software Engineering <br />
-          Cum Laude Honors, 6x Dean's List <br />
-        </p>
-        {/* LOGO OF STEDS / GRAD PHOTO?*/}
+      {/* About Section */}
+      <section className="about-section">
+        <div className="section-content">
+          <div className="content-left">
+            <h2 className="section-title">About Me</h2>
+            <p className="section-text">
+              I'm a recent graduate of St. Edward's University with a degree in Computer Science. 
+              My journey has taken me from competitive sports to esports, and now to the exciting 
+              world of cybersecurity and software development.
+            </p>
+            <p className="section-text">
+              What drives me is the constant learning and problem-solving that comes with ethical 
+              hacking and penetration testing. Every vulnerability discovered and every system 
+              secured is a step toward making the digital world safer.
+            </p>
+            <p className="section-text highlight">
+              Currently pursuing a career as a Penetration Tester while maintaining strong 
+              interests in Software Development and Machine Learning.
+            </p>
+          </div>
+          <div className="content-right">
+            <div className="stats-grid">
+              <div className="stat-card">
+                <h3>HTB Rank</h3>
+                <p>Climbing</p>
+              </div>
+              <div className="stat-card">
+                <h3>Certifications</h3>
+                <p>CPTS (In Progress)</p>
+              </div>
+              <div className="stat-card">
+                <h3>Focus Areas</h3>
+                <p>Penetration Testing</p>
+              </div>
+              <div className="stat-card">
+                <h3>Education</h3>
+                <p>St. Edward's University</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="skills">
-        <h2>Skills</h2>
-        <p>
-          For Software Engineering, I particularly enjoy working with Python in the backend and doing server work in the terminal. I do have experience with web development using React, Flask and Django.
-            I'm currently learning C++, and I have experience with SQL databases like MySQL, sqlite and Maria.
-          <br />
-            For Cybersecurity, I have experience with penetration testing primarily using Kali Linux, and I have experience with a large set of tools. I primarily focus on Web Application, Linux, Windows and Active Directory hacking.
-          <br />
-          I have experience with HackTheBox, PortSwigger, TryHackMe, PicoCTF, and other CTFs. I also have experience with Python and Bash scripting for automation and tool development.
-        </p>
+      {/* Skills Section */}
+      <section className="skills-section">
+        <div className="section-content">
+          <div className="content-left">
+            <h2 className="section-title">Technical Skills</h2>
+            <div className="skills-categories">
+              <div className="skill-category">
+                <h3>Cybersecurity</h3>
+                <ul>
+                  <li>Penetration Testing</li>
+                  <li>Active Directory Attacks</li>
+                  <li>Web Application Security</li>
+                  <li>Network Enumeration</li>
+                  <li>Vulnerability Assessment</li>
+                </ul>
+              </div>
+              <div className="skill-category">
+                <h3>Development</h3>
+                <ul>
+                  <li>Python</li>
+                  <li>JavaScript/React</li>
+                  <li>C++</li>
+                  <li>Flask/Node.js</li>
+                  <li>SQL/MongoDB</li>
+                </ul>
+              </div>
+              <div className="skill-category">
+                <h3>Tools & Platforms</h3>
+                <ul>
+                  <li>Docker</li>
+                  <li>Linux</li>
+                  <li>Git</li>
+                  <li>Cloud Platforms</li>
+                  <li>Penetration Testing Tools</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="content-right">
+            <div className="tech-icons-grid">
+              <div className="tech-icon">Python</div>
+              <div className="tech-icon">JavaScript</div>
+              <div className="tech-icon">React</div>
+              <div className="tech-icon">C++</div>
+              <div className="tech-icon">Docker</div>
+              <div className="tech-icon">Linux</div>
+              <div className="tech-icon">Git</div>
+              <div className="tech-icon">SQL</div>
+              <div className="tech-icon">MongoDB</div>
+              <div className="tech-icon">Flask</div>
+              <div className="tech-icon">Node.js</div>
+              <div className="tech-icon">AWS</div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="certifications">
-        <h2>Certifications</h2>
-        <p>
-            I currently hold the following certifications:
-          <ul>
-            <li>CompTIA Security+ (SY0-601)</li>
-            <li>Google Cybersecurity</li>
-          </ul>
-            I am currently pursuing the following certifications:
-            <ul>
-                <li>HackTheBox Certified Penetration Tester (CPTS)</li>
-                <li>Offensive Security Certified Professional (OSCP)</li>
-            </ul>
-        </p>
+      {/* Current Plans Section */}
+      <section className="plans-section">
+        <div className="section-content">
+          <div className="content-left">
+            <h2 className="section-title">Current Plans & Goals</h2>
+            <div className="goals-timeline">
+              <div className="goal-item">
+                <div className="goal-status current">Current</div>
+                <h3>HackTheBox CPTS Certification</h3>
+                <p>Working through the comprehensive penetration testing certification path</p>
+              </div>
+              <div className="goal-item">
+                <div className="goal-status next">Next</div>
+                <h3>OSCP Certification</h3>
+                <p>The gold standard in penetration testing certifications</p>
+              </div>
+              <div className="goal-item">
+                <div className="goal-status ongoing">Ongoing</div>
+                <h3>C++ Mastery</h3>
+                <p>Strengthening low-level programming and system understanding</p>
+              </div>
+              <div className="goal-item">
+                <div className="goal-status ongoing">Ongoing</div>
+                <h3>Algorithm Practice</h3>
+                <p>Climbing LeetCode ranks for technical interview preparation</p>
+              </div>
+            </div>
+          </div>
+          <div className="content-right">
+            <div className="progress-visualization">
+              <div className="progress-circle">
+                <div className="circle-content">
+                  <span className="progress-text">HTB Progress</span>
+                  <span className="progress-number">Rising</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="esports">
-        <h2>Esports: Call of Duty</h2>
-        <h3>St. Edward's University Varsity <span style={{ fontWeight: 'normal' }}>(2021-2025)</span></h3>
-        <p>
-          I was a part of the Call of Duty team for the school. We participated in multiple national 
-          competitions and consistently placed between Top 6 and 4 for the three years the team was active.
-        </p>
-        <h3>North American Amateur Circuit (Challengers) <span style={{ fontWeight: 'normal' }}>(2018-2024)</span></h3>
-        <p>
-          While I was in college, I also played in the North American Amateur Circuit (Challengers) 
-          for Call of Duty. I started playing competitive Call of Duty when I was 16 years old,
-          and I have been playing for 7 years now. I have played in multiple amateur tournaments,
-          and I have been a part of multiple teams. 
-          <br />
-          My most notable achievement was when I placed 2nd in the
-          North American Amateur Circuit (Challengers) Elite tournament in 2022. The Elite tournament
-          was an online tournament with a prize pool of $10,000.
-        </p>
+      {/* Esports Section */}
+      <section className="esports-section">
+        <div className="section-content">
+          <div className="content-left">
+            <h2 className="section-title">Esports Background</h2>
+            <div className="esports-achievements">
+              <div className="achievement">
+                <h3>St. Edward's University Varsity</h3>
+                <span className="year">2021-2025</span>
+                <p>
+                  Member of the Call of Duty varsity team, consistently placing Top 4-6 
+                  in national competitions throughout three active years.
+                </p>
+              </div>
+              <div className="achievement highlight-achievement">
+                <h3>North American Amateur Circuit</h3>
+                <span className="year">2018-2024</span>
+                <p>
+                  7 years of competitive Call of Duty experience in the Challengers circuit.
+                </p>
+                <div className="achievement-highlight">
+                  <strong>Notable Achievement:</strong> 2nd Place in NA Amateur Circuit Elite 
+                  Tournament 2022 ($10,000 prize pool)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="content-right">
+            <div className="esports-gallery">
+              <div className="gallery-item main-image">
+                <img src="/imgs/opticmajor.JPG" alt="Optic Major SEU Team Picture" className="hero-image" />
+              </div>
+              <div className="gallery-item">
+                <img src="/imgs/teamphoto.JPG" alt="Team Photo D1" className="hero-image" />
+              </div>
+              <div className="gallery-item">
+                <img src="/imgs/thresh.JPG" alt="Headshot" className="hero-image" />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
+      {/* Contact Section */}
+      <section className="contact-section">
+        <div className="section-content">
+          <div className="content-left">
+            <h2 className="section-title">Let's Connect</h2>
+            <p className="section-text">
+              I'm always interested in discussing cybersecurity, software development, 
+              or potential collaboration opportunities. Feel free to reach out!
+            </p>
+            <div className="contact-methods">
+              <a href="mailto:maupllrshjbs@gmail.com" className="contact-method">
+                <span className="contact-icon">📧</span>
+                <span>Mail</span>
+              </a>
+              <a href="https://github.com/MauPllrsH" className="contact-method">
+                <span className="contact-icon">🔗</span>
+                <span>GitHub Profile</span>
+              </a>
+              <a href="https://www.linkedin.com/in/mauricio-pallares-54aa862b7/" className="contact-method">
+                <span className="contact-icon">💼</span>
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
+          </div>
+          <div className="content-right">
+            <div className="contact-visual">
+              <div className="contact-card">
+                <h3>Open to Opportunities</h3>
+                <ul>
+                  <li>Penetration Testing Roles</li>
+                  <li>Cybersecurity Positions</li>
+                  <li>Software Development</li>
+                  <li>Freelance Security Assessments</li>
+                  <li>Technical Writing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
