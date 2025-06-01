@@ -4,19 +4,18 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   return (
     <div className="modern-layout">
-      <main>
-        {/* Navigation Header */}
-          <div className="content">
-            <div className="container">
-              <header className="header">
-                <p style={{ textAlign: 'center' }}>
-                  <Link to="/">← Back to Home</Link> | 
-                  <Link to="/htb">HTB Walkthroughs</Link>
-                </p>
-              </header>
-            </div>
-          </div>
-
+      {/* Fixed Navigation Header */}
+      <div className="fixed-nav-header">
+        <div className="nav-container">
+          <nav className="nav-links">
+            <Link to="/">← Home</Link>
+            <span className="nav-separator">|</span>
+            <Link to="/htb">HTB Walkthroughs</Link>
+          </nav>
+        </div>
+      </div>
+      
+      <main style={{ paddingTop: '80px' }}>
         {/* Project 1 - ML WAF */}
         <section className="section">
           <div className="content">

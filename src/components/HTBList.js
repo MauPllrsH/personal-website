@@ -69,16 +69,23 @@ const HTBList = () => {
     );
   }
 
-  return (
+return (
     <div className="modern-layout">
-      <div className="container">
-        {/* Header */}
+      {/* Fixed Navigation Header */}
+      <div className="fixed-nav-header">
+        <div className="nav-container">
+          <nav className="nav-links">
+            <Link to="/">← Home</Link>
+            <span className="nav-separator">|</span>
+            <Link to="/projects">Software Engineering Projects</Link>
+          </nav>
+        </div>
+      </div>
+      
+      <div className="container" style={{ marginTop: '120px' }}>
+        {/* Page Title */}
         <header className="header">
           <h1>HackTheBox Walkthroughs</h1>
-          <p style={{ textAlign: 'center' }}>
-            <Link to="/">Home</Link> {'   '}
-            <Link to="/projects">Software Engineering Projects</Link>
-          </p>
         </header>
 
         {/* Search and Filters */}
