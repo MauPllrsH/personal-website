@@ -55,113 +55,119 @@ const HTBList = () => {
 
   if (loading) {
     return (
-      <div className="container">
-        <header className="header">
-          <h1>HackTheBox Walkthroughs</h1>
-          <p style={{ textAlign: 'center' }}>
-            <Link to="/">← Back to Home </Link>
-          </p>
-        </header>
-        <p>Loading walkthroughs...</p>
+      <div className="modern-layout">
+        <div className="container">
+          <header className="header">
+            <h1>HackTheBox Walkthroughs</h1>
+            <p style={{ textAlign: 'center' }}>
+              <Link to="/">← Back to Home</Link>
+            </p>
+          </header>
+          <p className="section-text">Loading walkthroughs...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container">
-      {/* Rest of HTBList component stays the same */}
-      <header className="header">
-        <h1>HackTheBox Walkthroughs</h1>
-        <p style={{ textAlign: 'center' }}>
-          <Link to="/">Home</Link>
-          <Link to="/projects">Software Engineering Projects</Link>
-        </p>
-      </header>
+    <div className="modern-layout">
+      <div className="container">
+        {/* Header */}
+        <header className="header">
+          <h1>HackTheBox Walkthroughs</h1>
+          <p style={{ textAlign: 'center' }}>
+            <Link to="/">Home</Link> {'   '}
+            <Link to="/projects">Software Engineering Projects</Link>
+          </p>
+        </header>
 
-      <section className="search-filters">
-        <div className="search-box">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search machines or techniques..."
-            value={filters.search}
-            onChange={handleSearchChange}
-          />
-        </div>
-        
-        <div className="filter-buttons">
-          <div className="filter-group">
-            <label>Difficulty:</label>
-            {['all', 'easy', 'medium', 'hard'].map(difficulty => (
-              <button
-                key={difficulty}
-                className={`filter-btn ${filters.difficulty === difficulty ? 'active' : ''}`}
-                onClick={() => handleFilterChange('difficulty', difficulty)}
-              >
-                {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
-              </button>
-            ))}
+        {/* Search and Filters */}
+        <section className="search-filters">
+          <div className="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search machines or techniques..."
+              value={filters.search}
+              onChange={handleSearchChange}
+            />
           </div>
           
-          <div className="filter-group">
-            <label>OS:</label>
-            {['all', 'windows', 'linux'].map(os => (
-              <button
-                key={os}
-                className={`filter-btn ${filters.os === os ? 'active' : ''}`}
-                onClick={() => handleFilterChange('os', os)}
-              >
-                {os.charAt(0).toUpperCase() + os.slice(1)}
-              </button>
-            ))}
+          <div className="filter-buttons">
+            <div className="filter-group">
+              <label>Difficulty:</label>
+              {['all', 'easy', 'medium', 'hard'].map(difficulty => (
+                <button
+                  key={difficulty}
+                  className={`filter-btn ${filters.difficulty === difficulty ? 'active' : ''}`}
+                  onClick={() => handleFilterChange('difficulty', difficulty)}
+                >
+                  {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+                </button>
+              ))}
+            </div>
+            
+            <div className="filter-group">
+              <label>OS:</label>
+              {['all', 'windows', 'linux'].map(os => (
+                <button
+                  key={os}
+                  className={`filter-btn ${filters.os === os ? 'active' : ''}`}
+                  onClick={() => handleFilterChange('os', os)}
+                >
+                  {os.charAt(0).toUpperCase() + os.slice(1)}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section>
-        <h2>Walkthroughs ({filteredWalkthroughs.length})</h2>
-        
-        {filteredWalkthroughs.length > 0 ? (
-          <div className="walkthrough-grid">
-            {filteredWalkthroughs.map((walkthrough, index) => (
-              <div key={index} className="walkthrough-card">
-                <div className="card-header">
-                  <h3>
-                    <Link to={`/htb/${walkthrough.slug}`}>
-                      {walkthrough.machine_name}
-                    </Link>
-                  </h3>
-                  <span className={`difficulty difficulty-${walkthrough.difficulty?.toLowerCase()}`}>
-                    {walkthrough.difficulty}
-                  </span>
-                </div>
-                
-                <div className="card-content">
-                  <p><strong>OS:</strong> {walkthrough.os}</p>
-                  <p><strong>Completed:</strong> {walkthrough.date_completed}</p>
+        {/* Walkthroughs Grid */}
+        <section>
+          <h2 className="section-title">Walkthroughs ({filteredWalkthroughs.length})</h2>
+          
+          {filteredWalkthroughs.length > 0 ? (
+            <div className="walkthrough-grid">
+              {filteredWalkthroughs.map((walkthrough, index) => (
+                <div key={index} className="walkthrough-card">
+                  <div className="card-header">
+                    <h3>
+                      <Link to={`/htb/${walkthrough.slug}`}>
+                        {walkthrough.machine_name}
+                      </Link>
+                    </h3>
+                    <span className={`difficulty difficulty-${walkthrough.difficulty?.toLowerCase()}`}>
+                      {walkthrough.difficulty}
+                    </span>
+                  </div>
                   
-                  {walkthrough.techniques && (
-                    <div className="techniques">
-                      {walkthrough.techniques.slice(0, 3).map((technique, techIndex) => (
-                        <span key={techIndex} className="technique-tag">
-                          {technique}
-                        </span>
-                      ))}
-                      {walkthrough.techniques.length > 3 && (
-                        <span className="technique-tag">
-                          +{walkthrough.techniques.length - 3} more
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  <div className="card-content">
+                    <p><strong>OS:</strong> {walkthrough.os}</p>
+                    <p><strong>Completed:</strong> {walkthrough.date_completed}</p>
+                    
+                    {walkthrough.techniques && (
+                      <div className="techniques">
+                        {walkthrough.techniques.slice(0, 3).map((technique, techIndex) => (
+                          <span key={techIndex} className="technique-tag">
+                            {technique}
+                          </span>
+                        ))}
+                        {walkthrough.techniques.length > 3 && (
+                          <span className="technique-tag">
+                            +{walkthrough.techniques.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p>No walkthroughs found matching your criteria.</p>
-        )}
-      </section>
+              ))}
+            </div>
+          ) : (
+            <p className="section-text">No walkthroughs found matching your criteria.</p>
+          )}
+        </section>
+      </div>
     </div>
   );
 };
