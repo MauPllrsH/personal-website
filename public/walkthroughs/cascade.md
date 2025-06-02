@@ -10,8 +10,6 @@ machine_rank: "#9183"
 htb_completion_image: "cascade.png"
 ---
 
-![HTB Cascade Completion](/imgs/walkthroughs/cascade.png)
-
 In this walkthrough, I'll guide you through Cascade from HackTheBox, a medium-difficulty Windows Active Directory machine. The attack path involves discovering credentials stored in unusual locations, reverse engineering .NET applications, and navigating through multiple user accounts to eventually reach domain admin privileges.
 
 ## Box Information

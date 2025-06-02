@@ -1,10 +1,7 @@
-/* Projects.css - Styles specific to the Projects component */
-
 /* Projects page main content spacing */
 .projects-page main {
   padding-top: 80px; /* Account for fixed navigation */
 }
-
 /* ==========================================
    PROJECTS PAGE SECTIONS
    ========================================== */

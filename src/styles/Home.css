@@ -8,6 +8,13 @@
   view-timeline: --main;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* SCROLL SNAPPING ADDITIONS */
+  scroll-snap-type: y mandatory;
+  timeline-scope: --section, --main, --site-header;
+}
+
 /* ==========================================
    HOME PAGE SECTIONS WITH SCROLL SNAPPING
    ========================================== */
@@ -28,7 +35,7 @@
   position: fixed;
   inset: 0;
   background-color: #0b132b;
-  --contrast: 4;
+  --contrast: 1;
   --blur: 0.5rem;
   animation: blink ease-in-out both;
   animation-timeline: --section;
@@ -50,7 +57,7 @@
 
 /* HOME PAGE SECTION CONTENT */
 .home-page .section-content {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 3rem;
   display: grid;
@@ -82,7 +89,7 @@
 }
 
 .hero-image {
-  max-width: 350px;
+  max-width: 600px;
   width: 100%;
   height: auto;
   border-radius: 25px;
@@ -213,7 +220,7 @@
 
 .gallery-item {
   width: 400px;
-  aspect-ratio: 16 / 14;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   display: flex;
   align-items: stretch;

@@ -10,8 +10,6 @@ machine_rank: "#172"
 htb_completion_image: "active.webp"
 ---
 
-![HTB Active Completion](/imgs/walkthroughs/active.webp)
-
 As part of my continuous journey in cybersecurity, I recently tackled the "Active" machine on HackTheBox. This Windows-based challenge provided an excellent opportunity to explore Active Directory security concepts and common misconfigurations. In this write-up, I'll share my approach, the techniques I used, and the valuable lessons learned along the way.
 
 ## Box Information
