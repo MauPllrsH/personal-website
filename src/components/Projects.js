@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Projects = () => {
   return (
-    <div className="modern-layout">
+    <div className="modern-layout projects-page">
       {/* Fixed Navigation Header */}
       <div className="fixed-nav-header">
         <div className="nav-container">

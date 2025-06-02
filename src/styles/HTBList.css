@@ -1,0 +1,259 @@
+/* ==========================================
+   HTB LIST PAGE CONTAINER
+   ========================================== */
+
+.htb-list-page .container {
+  max-width: 1200px;
+  margin: 120px auto 40px auto; /* Top margin for fixed nav */
+  padding: 40px 32px;
+  background: rgba(30, 52, 117, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(198, 210, 237, 0.1);
+}
+
+.htb-list-page .header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.htb-list-page .header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #e7e6f7, #40f99b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================
+   SEARCH AND FILTERS
+   ========================================== */
+
+.search-filters {
+  margin-bottom: 3rem;
+  background: rgba(30, 52, 117, 0.2);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(198, 210, 237, 0.2);
+}
+
+.search-box {
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  background: rgba(11, 19, 43, 0.7);
+  border: 2px solid rgba(102, 113, 126, 0.3);
+  border-radius: 12px;
+  color: #e7e6f7;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #40f99b;
+  box-shadow: 0 0 0 3px rgba(64, 249, 155, 0.1);
+}
+
+.search-box input::placeholder {
+  color: #c6d2ed;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #e7e6f7;
+  font-size: 1.1rem;
+  min-width: 80px;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  background: rgba(11, 19, 43, 0.7);
+  border: 2px solid rgba(102, 113, 126, 0.3);
+  border-radius: 8px;
+  color: #c6d2ed;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.filter-btn:hover {
+  background: rgba(64, 249, 155, 0.1);
+  border-color: #40f99b;
+  color: #40f99b;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #40f99b;
+  color: #0b132b;
+  border-color: #40f99b;
+}
+
+/* ==========================================
+   WALKTHROUGH CARDS GRID
+   ========================================== */
+
+.walkthrough-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.walkthrough-card {
+  background: rgba(30, 52, 117, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(198, 210, 237, 0.2);
+  transition: all 0.3s ease;
+}
+
+.walkthrough-card:hover {
+  transform: translateY(-5px);
+  background: rgba(30, 52, 117, 0.5);
+  border-color: #40f99b;
+  box-shadow: 0 10px 30px rgba(64, 249, 155, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.card-header h3 a {
+  color: #e7e6f7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-header h3 a:hover {
+  color: #40f99b;
+}
+
+/* Difficulty badges */
+.difficulty {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.difficulty-easy {
+  background: rgba(64, 249, 155, 0.2);
+  color: #40f99b;
+  border: 1px solid rgba(64, 249, 155, 0.4);
+}
+
+.difficulty-medium {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.difficulty-hard {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+.card-content p {
+  margin: 0.75rem 0;
+  color: #c6d2ed;
+  font-size: 1rem;
+}
+
+.card-content strong {
+  color: #e7e6f7;
+}
+
+/* Technique tags */
+.techniques {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.technique-tag {
+  background: rgba(64, 249, 155, 0.15);
+  color: #40f99b;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(64, 249, 155, 0.3);
+}
+
+/* ==========================================
+   HTB LIST RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .htb-list-page .container {
+    margin-top: 100px;
+    padding: 30px 20px;
+  }
+
+  .htb-list-page .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .filter-buttons {
+    gap: 1rem;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .walkthrough-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .htb-list-page .header h1 {
+    font-size: 2rem;
+  }
+
+  .search-filters {
+    padding: 1.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

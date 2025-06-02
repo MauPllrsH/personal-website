@@ -1,0 +1,412 @@
+/* HTBWalkthrough.css - Styles specific to the HTB Walkthrough component */
+
+/* Disable scroll snapping for walkthrough pages */
+.walkthrough-page {
+  scroll-snap-type: none !important;
+}
+
+.walkthrough-page html {
+  scroll-snap-type: none !important;
+}
+
+/* ==========================================
+   PARALLAX BACKGROUND
+   ========================================== */
+
+.walkthrough-feature {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(135deg, #0b132b 0%, #1e3475 50%, #2a4d7a 100%);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 0 -50px 20px -20px #0b132b inset;
+  overflow: hidden;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Dark overlay for better text readability */
+.walkthrough-feature::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(11, 19, 43, 0.3) 0%, 
+    rgba(11, 19, 43, 0.6) 50%, 
+    rgba(11, 19, 43, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+.walkthrough-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%2340f99b" stroke-width="0.3" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.1;
+  z-index: 2;
+}
+
+.walkthrough-feature .opaque {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background: #0b132b;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+/* ==========================================
+   WALKTHROUGH NAVIGATION
+   ========================================== */
+
+.walkthrough-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(11, 19, 43, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(64, 249, 155, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.walkthrough-nav a {
+  color: #40f99b;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.walkthrough-nav a:hover {
+  background: rgba(64, 249, 155, 0.1);
+  transform: translateY(-2px);
+}
+
+.walkthrough-nav .nav-separator {
+  color: #40f99b;
+  font-weight: 300;
+  opacity: 0.5;
+  margin: 0 1rem;
+}
+
+/* ==========================================
+   MAIN CONTENT CONTAINER
+   ========================================== */
+
+.walkthrough-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 55vh;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #0b132b;
+  min-height: 100vh;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================
+   WALKTHROUGH META SECTION
+   ========================================== */
+
+.walkthrough-meta {
+  background: rgba(30, 52, 117, 0.3);
+  padding: 3rem;
+  margin-top: 4rem;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(198, 210, 237, 0.2);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.walkthrough-meta h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #e7e6f7, #40f99b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.meta-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.os {
+  background: rgba(198, 210, 237, 0.2);
+  color: #e7e6f7;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(198, 210, 237, 0.4);
+}
+
+.date {
+  background: rgba(102, 113, 126, 0.2);
+  color: #c6d2ed;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  border: 1px solid rgba(102, 113, 126, 0.4);
+}
+
+/* ==========================================
+   MARKDOWN CONTENT STYLING
+   ========================================== */
+
+.walkthrough-content .content {
+  background: #0b132b;
+  padding: 3rem;
+  line-height: 1.8;
+  margin-bottom: 4rem;
+}
+
+.walkthrough-content .content h1,
+.walkthrough-content .content h2,
+.walkthrough-content .content h3,
+.walkthrough-content .content h4,
+.walkthrough-content .content h5,
+.walkthrough-content .content h6 {
+  color: #e7e6f7;
+  font-weight: 700;
+  margin: 2.5rem 0 1.5rem 0;
+  line-height: 1.3;
+}
+
+.walkthrough-content .content h1 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid #40f99b;
+  padding-bottom: 1rem;
+}
+
+.walkthrough-content .content h2 {
+  font-size: 2rem;
+  color: #40f99b;
+}
+
+.walkthrough-content .content h3 {
+  font-size: 1.6rem;
+}
+
+.walkthrough-content .content h4 {
+  font-size: 1.3rem;
+}
+
+.walkthrough-content .content p {
+  color: #c6d2ed;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.walkthrough-content .content strong {
+  color: #e7e6f7;
+  font-weight: 700;
+}
+
+.walkthrough-content .content em {
+  color: #40f99b;
+  font-style: italic;
+}
+
+.walkthrough-content .content ul,
+.walkthrough-content .content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.walkthrough-content .content li {
+  color: #c6d2ed;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.walkthrough-content .content li::marker {
+  color: #40f99b;
+}
+
+.walkthrough-content .content blockquote {
+  background: rgba(64, 249, 155, 0.1);
+  border-left: 5px solid #40f99b;
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+
+.walkthrough-content .content blockquote p {
+  color: #e7e6f7;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Code Styling */
+.walkthrough-content .content pre {
+  background: rgba(11, 19, 43, 0.8) !important;
+  border: 2px solid rgba(64, 249, 155, 0.2);
+  border-radius: 12px;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.walkthrough-content .content code {
+  background: rgba(64, 249, 155, 0.15);
+  color: #40f99b;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', monospace;
+  font-size: 0.95em;
+  border: 1px solid rgba(64, 249, 155, 0.3);
+}
+
+.walkthrough-content .content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Tables */
+.walkthrough-content .content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: rgba(30, 52, 117, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.walkthrough-content .content th,
+.walkthrough-content .content td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(198, 210, 237, 0.2);
+}
+
+.walkthrough-content .content th {
+  background: rgba(64, 249, 155, 0.1);
+  color: #e7e6f7;
+  font-weight: 700;
+}
+
+.walkthrough-content .content td {
+  color: #c6d2ed;
+}
+
+.walkthrough-content .content tr:hover {
+  background: rgba(64, 249, 155, 0.05);
+}
+
+/* Images */
+.walkthrough-content .content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(64, 249, 155, 0.2);
+}
+
+/* Horizontal Rules */
+.walkthrough-content .content hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #40f99b, transparent);
+  margin: 3rem 0;
+  border-radius: 2px;
+}
+
+/* ==========================================
+   WALKTHROUGH RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .walkthrough-feature {
+    height: 40vh;
+  }
+
+  .walkthrough-content {
+    padding-top: 35vh;
+    width: 95%;
+  }
+
+  .walkthrough-meta {
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .walkthrough-meta h1 {
+    font-size: 2.2rem;
+  }
+
+  .walkthrough-content .content {
+    padding: 2rem;
+  }
+
+  .walkthrough-content .content h1 {
+    font-size: 2rem;
+  }
+
+  .walkthrough-content .content h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .walkthrough-nav {
+    padding: 0.75rem;
+  }
+
+  .walkthrough-nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .walkthrough-meta h1 {
+    font-size: 1.8rem;
+  }
+
+  .walkthrough-content .content {
+    padding: 1.5rem;
+  }
+
+  .meta-info {
+    gap: 1rem;
+  }
+
+  .difficulty,
+  .os,
+  .date {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

@@ -16,20 +16,20 @@ const HTBWalkthrough = () => {
       const feature = document.querySelector('.walkthrough-feature');
       if (!feature) return;
 
-      const zoom = parseFloat(getComputedStyle(feature).backgroundSize) / 100 || 2.5;
-      const size = zoom * feature.offsetWidth;
-
+      // For images, we'll use a zoom effect instead of background-size manipulation
       const handleScroll = () => {
         const fromTop = window.pageYOffset;
-        const newSize = size - (fromTop / 3);
         const htmlHeight = document.documentElement.scrollHeight;
         
-        if (newSize > feature.offsetWidth) {
-          // Apply parallax effects
-          feature.style.backgroundSize = `${newSize}px`;
-          feature.style.filter = `blur(${0 + (fromTop / 100)}px)`;
-          feature.style.opacity = 1 - ((fromTop / htmlHeight) * 1.3);
-        }
+        // Calculate zoom and blur effects
+        const scale = 1 + (fromTop / 2000); // Subtle zoom effect
+        const blur = fromTop / 100; // Gradual blur
+        const opacity = Math.max(0.3, 1 - (fromTop / htmlHeight)); // Keep minimum opacity
+        
+        // Apply transform instead of background-size for better performance
+        feature.style.transform = `scale(${scale})`;
+        feature.style.filter = `blur(${blur}px)`;
+        feature.style.opacity = opacity;
       };
 
       // Browser-specific opacity overlay for non-Chrome/Safari
@@ -40,13 +40,14 @@ const HTBWalkthrough = () => {
         const opaque = document.querySelector('.opaque');
         if (opaque) {
           const handleOpaqueScroll = () => {
-            const opacity = 0 + (window.pageYOffset / 5000);
-            opaque.style.opacity = Math.min(opacity, 1);
+            const opacity = Math.min(0.7, 0 + (window.pageYOffset / 3000));
+            opaque.style.opacity = opacity;
           };
           window.addEventListener('scroll', handleOpaqueScroll);
           
           return () => {
             window.removeEventListener('scroll', handleOpaqueScroll);
+            window.removeEventListener('scroll', handleScroll);
           };
         }
       }
@@ -67,7 +68,7 @@ const HTBWalkthrough = () => {
 
   if (loading) {
     return (
-      <div className="modern-layout">
+      <div className="modern-layout walkthrough-page">
         <div className="container">
           <p className="section-text">Loading walkthrough...</p>
         </div>
@@ -77,7 +78,7 @@ const HTBWalkthrough = () => {
 
   if (!walkthrough) {
     return (
-      <div className="modern-layout">
+      <div className="modern-layout walkthrough-page">
         <div className="container">
           <p className="section-text">Walkthrough not found.</p>
           <Link to="/htb">← Back to HTB Walkthroughs</Link>
@@ -87,19 +88,25 @@ const HTBWalkthrough = () => {
   }
 
   return (
-    <div className="modern-layout">
-      {/* Parallax Background */}
-      <div className="walkthrough-feature">
+    <div className="walkthrough-page">
+      {/* Parallax Background with machine image */}
+      <div 
+        className="walkthrough-feature"
+        style={{
+          backgroundImage: walkthrough.htb_completion_image 
+            ? `url(/imgs/walkthroughs/${walkthrough.htb_completion_image})`
+            : 'linear-gradient(135deg, #0b132b 0%, #1e3475 50%, #2a4d7a 100%)'
+        }}
+      >
         <div className="opaque"></div>
       </div>
 
       {/* Main Content */}
-      <article className="walkthrough-content">
-        <header className="header">
-          <p style={{ textAlign: 'center' }}>
-            <Link to="/htb">← Back to HTB Walkthroughs</Link> | 
-            <Link to="/">Home</Link>
-          </p>
+      <div className="walkthrough-content">
+        <header className="walkthrough-nav">
+          <Link to="/htb">← Back to HTB Walkthroughs</Link>
+          <span className="nav-separator">|</span>
+          <Link to="/">Home</Link>
         </header>
 
         <div className="walkthrough-meta">
@@ -149,7 +156,7 @@ const HTBWalkthrough = () => {
             {walkthrough.content}
           </ReactMarkdown>
         </div>
-      </article>
+      </div>
     </div>
   );
 };

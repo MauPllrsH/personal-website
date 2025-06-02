@@ -70,7 +70,7 @@ const HTBList = () => {
   }
 
 return (
-    <div className="modern-layout">
+    <div className="modern-layout htb-list-page">
       {/* Fixed Navigation Header */}
       <div className="fixed-nav-header">
         <div className="nav-container">
